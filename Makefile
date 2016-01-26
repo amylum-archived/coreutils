@@ -48,7 +48,7 @@ build: submodule deps
 	cp -R .git/modules/upstream $(BUILD_DIR)/.git
 	sed -i '/worktree/d' $(BUILD_DIR)/.git/config
 	cd $(BUILD_DIR) && ./bootstrap
-	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(OPENSSL_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
+	cd $(BUILD_DIR) && CFLAGS='$(CFLAGS) $(OPENSSL_PATH)' FORCE_UNSAFE_CONFIGURE ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
 	rm -r $(RELEASE_DIR)/tmp $(RELEASE_DIR)/usr/var
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
