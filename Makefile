@@ -13,7 +13,13 @@ PATH_FLAGS = --prefix=/usr --sysconfdir=/etc --infodir=/tmp/trash --libexecdir=/
 CONF_FLAGS = --enable-no-install-program=groups,hostname,kill,uptime --with-openssl
 CFLAGS = -static -static-libgcc -Wl,-static -lc
 
-.PHONY : default submodule build_container manual container build version push local
+OPENSSL_VERSION = 1.0.2e-2
+OPENSSL_URL = https://github.com/amylum/openssl/releases/download/$(OPENSSL_VERSION)/openssl.tar.gz
+OPENSSL_TAR = /tmp/openssl.tar.gz
+OPENSSL_DIR = /tmp/openssl
+OPENSSL_PATH = -I$(OPENSSL_DIR)/usr/include -L$(OPENSSL_DIR)/usr/lib
+
+.PHONY : default submodule build_container manual container deps build version push local
 
 default: submodule container
 
@@ -29,7 +35,13 @@ manual: submodule build_container
 container: build_container
 	./meta/launch
 
-build: submodule
+deps:
+	rm -rf $(OPENSSL_DIR) $(OPENSSL_TAR)
+	mkdir $(OPENSSL_DIR)
+	curl -sLo $(OPENSSL_TAR) $(OPENSSL_URL)
+	tar -x -C $(OPENSSL_DIR) -f $(OPENSSL_TAR)
+
+build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	rm -rf $(BUILD_DIR)/.git
