@@ -13,17 +13,20 @@ PATH_FLAGS = --prefix=/usr --sysconfdir=/etc --infodir=/tmp/trash --libexecdir=/
 CONF_FLAGS = --enable-no-install-program=groups,hostname,kill,uptime --with-openssl
 CFLAGS = -static -static-libgcc -Wl,-static -lc
 
-.PHONY : default submodule manual container build version push local
+.PHONY : default submodule build_container manual container build version push local
 
 default: submodule container
 
 submodule:
 	git submodule update --init
 
-manual: submodule
+build_container:
+	docker build -t coreutils-pkg meta
+
+manual: submodule build_container
 	./meta/launch /bin/bash || true
 
-container:
+container: build_container
 	./meta/launch
 
 build: submodule
