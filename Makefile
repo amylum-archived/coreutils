@@ -10,7 +10,7 @@ PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
 PATH_FLAGS = --prefix=/usr --sysconfdir=/etc --infodir=/tmp/trash --libexecdir=/usr/lib
-CONF_FLAGS = 
+CONF_FLAGS = --enable-no-install-program=groups,hostname,kill,uptime --with-openssl
 CFLAGS = -static -static-libgcc -Wl,-static -lc
 
 .PHONY : default submodule manual container build version push local
