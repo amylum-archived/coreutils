@@ -34,6 +34,7 @@ build: submodule
 	cp -R upstream $(BUILD_DIR)
 	rm -rf $(BUILD_DIR)/.git
 	cp -R .git/modules/upstream $(BUILD_DIR)/.git
+	sed -i '/worktree/d' $(BUILD_DIR)/.git/config
 	cd $(BUILD_DIR) && ./bootstrap
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install

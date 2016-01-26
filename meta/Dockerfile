@@ -1,3 +1,3 @@
 FROM dock0/build
 MAINTAINER akerl <me@lesaker.org>
-RUN pacman -S --needed --noconfirm gperf
+RUN pacman -S --needed --noconfirm gperf rsync
