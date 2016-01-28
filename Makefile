@@ -11,7 +11,7 @@ VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
 PATH_FLAGS = --prefix=/usr --sysconfdir=/etc --infodir=/tmp/trash --libexecdir=/usr/lib
 CONF_FLAGS = --enable-no-install-program=groups,hostname,kill,uptime --with-openssl
-CFLAGS = -static -static-libgcc -Wl,-static -lc
+CFLAGS = -static -static-libgcc -Wl,-static
 
 OPENSSL_VERSION = 1.0.2e-2
 OPENSSL_URL = https://github.com/amylum/openssl/releases/download/$(OPENSSL_VERSION)/openssl.tar.gz
