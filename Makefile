@@ -50,7 +50,7 @@ build: submodule deps
 	cd $(BUILD_DIR) && ./bootstrap
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(OPENSSL_PATH)' FORCE_UNSAFE_CONFIGURE=1 ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
-	rm -r $(RELEASE_DIR)/tmp
+	rm -r $(RELEASE_DIR)/tmp $(RELEASE_DIR)/usr/lib/charset.alias
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
