@@ -24,7 +24,7 @@ item do
         actual do
           grep
           file 'Makefile'
-          regex /^#{dep.upcase}_VERSION = ([\d.-]+)$/
+          regex /^#{dep.upcase}_VERSION = ([\w.-]+)$/
         end
       end
     end
