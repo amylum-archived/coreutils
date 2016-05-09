@@ -13,7 +13,7 @@ PATH_FLAGS = --prefix=/usr --sysconfdir=/etc --infodir=/tmp/trash --libexecdir=/
 CONF_FLAGS = --enable-no-install-program=groups,hostname,kill,uptime --with-openssl
 CFLAGS =
 
-OPENSSL_VERSION = 1.0.2e-2
+OPENSSL_VERSION = 1.0.2h-7
 OPENSSL_URL = https://github.com/amylum/openssl/releases/download/$(OPENSSL_VERSION)/openssl.tar.gz
 OPENSSL_TAR = /tmp/openssl.tar.gz
 OPENSSL_DIR = /tmp/openssl
