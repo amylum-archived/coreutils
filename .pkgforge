@@ -10,7 +10,7 @@ deps(
 configure_flags(
   prefix: '/usr',
   sysconfdir: '/etc/ssh',
-  libexecdir: '/usr/bini',
+  libexecdir: '/usr/bin',
   'enable-no-install-program': 'groups,hostname,kill,uptime',
   'with-openssl': nil
 )
