@@ -16,7 +16,6 @@ configure_flags(
 )
 
 cflags
-harden
 
 build do
   run './bootstrap'
