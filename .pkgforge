@@ -1,0 +1,31 @@
+name 'coreutils'
+org 'amylum'
+
+licenses 'COPYING'
+
+deps(
+  openssl: '1.0.2h-7'
+)
+
+configure_flags(
+  prefix: '/usr',
+  sysconfdir: '/etc/ssh',
+  libexecdir: '/usr/bini',
+  'enable-no-install-program': 'groups,hostname,kill,uptime',
+  'with-openssl': nil
+)
+
+cflags
+harden
+
+build do
+  run './bootstrap'
+  configure 'FORCE_UNSAFE_CONFIGURE' => '1'
+  make
+  install
+  rm "#{releasedir}/usr/lib/charset.alias"
+end
+
+test do
+  run 'true'
+end
