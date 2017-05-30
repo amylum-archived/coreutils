@@ -16,6 +16,7 @@ configure_flags(
 )
 
 cflags
+cflags(['-Wno-error=implicit-fallthrough'])
 
 build do
   run './bootstrap'
