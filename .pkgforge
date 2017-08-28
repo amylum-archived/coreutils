@@ -4,7 +4,10 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
-  openssl: '1.0.2l-1'
+  openssl: {
+    version: '1.0.2l-1',
+    checksum: '6a46a1a65aa5cadc69a2b01e3ef8fa0a38353f3f7b86c1a772ab5156dd5b2264'
+  }
 )
 
 configure_flags(
