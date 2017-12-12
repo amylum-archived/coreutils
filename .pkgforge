@@ -22,10 +22,12 @@ cflags
 cflags(['-Wno-error=implicit-fallthrough'])
 harden
 
+patch 'ld_library_path.patch'
+
 build do
   run './bootstrap'
   configure 'FORCE_UNSAFE_CONFIGURE' => '1'
-  make
+  make 'OPENSSL_LD_LIBRARY_PATH' => "#{dep(:openssl)}/usr/lib"
   install
   rm 'usr/lib/charset.alias'
 end

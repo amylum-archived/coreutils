@@ -1,0 +1,12 @@
+diff --git a/man/local.mk b/man/local.mk
+index 4b98bfd08..635f2e6e6 100644
+--- a/man/local.mk
++++ b/man/local.mk
+@@ -186,6 +186,7 @@ endif
+ 	  && (cd $$t && $(LN_S) '$(abs_top_builddir)/src/'$$prog$(EXEEXT) \
+ 				$$argv$(EXEEXT))			\
+ 	&& : $${SOURCE_DATE_EPOCH=`cat $(srcdir)/.timestamp 2>/dev/null || :`} \
++	&& export LD_LIBRARY_PATH=$${OPENSSL_LD_LIBRARY_PATH} \
+ 	&& export SOURCE_DATE_EPOCH && $(run_help2man)			\
+ 		     --source='$(PACKAGE_STRING)'			\
+ 		     --include=$(srcdir)/man/$$name.x			\
