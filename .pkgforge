@@ -19,8 +19,11 @@ configure_flags(
 )
 
 cflags
-cflags(['-Wno-error=implicit-fallthrough'])
-cflags(['-Wno-error=attributes'])
+cflags([
+  '-Wno-error=implicit-fallthrough',
+  '-Wno-error=attributes',
+  '-Wno-error=cast-function-type'
+])
 harden
 
 patch 'ld_library_path.patch'
