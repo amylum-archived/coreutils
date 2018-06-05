@@ -22,7 +22,8 @@ cflags
 cflags([
   '-Wno-error=implicit-fallthrough',
   '-Wno-error=attributes',
-  '-Wno-error=cast-function-type'
+  '-Wno-error=cast-function-type',
+  '-Wno-error=sizeof-pointer-memaccess'
 ])
 harden
 
