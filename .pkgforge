@@ -35,7 +35,6 @@ build do
   configure 'FORCE_UNSAFE_CONFIGURE' => '1'
   make 'OPENSSL_LD_LIBRARY_PATH' => "#{dep(:openssl)}/usr/lib"
   install
-  rm 'usr/lib/charset.alias'
 end
 
 test do
