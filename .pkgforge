@@ -5,8 +5,8 @@ licenses 'COPYING'
 
 deps(
   openssl: {
-    version: '1.1.0h-3',
-    checksum: 'c9d6db39ea09dd8051cb36c42f85eb8043ce580c6132caa0506a839d88dea275'
+    version: '1.1.0i-1',
+    checksum: '62004bc61c94107134eb16fdb405b36df2246f303bcd58f5d7df87025a6d7804'
   }
 )
 
