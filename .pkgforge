@@ -24,7 +24,8 @@ cflags([
   '-Wno-error=attributes',
   '-Wno-error=cast-function-type',
   '-Wno-error=sizeof-pointer-memaccess',
-  '-Wno-error=unused-const-variable'
+  '-Wno-error=unused-const-variable',
+  '-Wno-error=shadow'
 ])
 harden
 
